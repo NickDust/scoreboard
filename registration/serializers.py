@@ -16,10 +16,11 @@ class UserProfileSerializer(serializers.ModelSerializer):
         fields = ['user', 'password', 'game_tag', 'points', 'premium']
 
     def create(self, validated_data):
-        password = validated_data.pop('password')
-        points = validated_data.pop('points', 0)
-        premium = validated_data.pop('premium', False)
-        user_data = validated_data.pop('user')
-        user = User.objects.create_user(username=user_data['username'], password=password)
-        profile = UserProfileModel.objects.create(user=user, points=points, premium=premium)
+        game_tag = validated_data.pop("game_tag")
+        password = validated_data.pop("password")
+        points = validated_data.pop("points", 0)
+        premium = validated_data.pop("premium", False)
+        user_data = validated_data.pop("user")
+        user = User.objects.create_user(username=user_data["username"], password=password)
+        profile = UserProfileModel.objects.create(user=user, points=points, premium=premium, game_tag=game_tag)
         return profile

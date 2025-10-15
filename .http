@@ -2,6 +2,7 @@ POST http://127.0.0.1:8000/api/registration/
 Content-Type: application/json
 
 {
-    "user": {"username": "Marco"},
-    "password": "PasswordNew"
+    "user": {"username": "mariano"},
+    "password": "PasswordNew",
+    "game_tag": "DioDioniso"
 }

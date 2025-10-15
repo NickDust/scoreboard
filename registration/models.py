@@ -19,7 +19,7 @@ class UserProfileModel(models.Model):
         return f"{self.user.username}The{champion}Rider{random_number}"
     
     def save(self, *args, **kwargs):
-        if not self.game_tag or self.game_tag == "":
+        if not self.game_tag or self.game_tag.strip() == "":
             tag = self.game_tag_generator()
             while UserProfileModel.objects.filter(game_tag=self.game_tag).exists():
                 tag = self.game_tag_generator()

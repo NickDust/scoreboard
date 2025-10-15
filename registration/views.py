@@ -6,7 +6,6 @@ from .serializers import UserProfileSerializer
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import AllowAny
 
-
 class RegisterUserView(APIView):
     permission_classes = [AllowAny]
 
@@ -18,4 +17,4 @@ class RegisterUserView(APIView):
             return Response({"message": f"User({profile.user.username}) created successfully. game_tag: {profile.game_tag}",
                              "token": token.key}, 
                              status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)  
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
