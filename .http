@@ -1,8 +1,10 @@
-POST http://127.0.0.1:8000/api/registration/
+POST http://127.0.0.1:8000/api/points-submitting/3/
 Content-Type: application/json
 
 {
-    "user": {"username": "mariano"},
-    "password": "PasswordNew",
-    "game_tag": "DioDioniso"
+    "points": 250
 }
+###
+
+GET http://127.0.0.1:8000/api/ranking
+Content-Type: application/json

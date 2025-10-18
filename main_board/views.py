@@ -29,5 +29,7 @@ class RankingView(APIView):
         for user in data:
             points = user.points
             game_tag = user.game_tag
-            ranking[game_tag] = points
+            rank = user.rank.rank if user.rank else None
+            ranking[game_tag] = {"points": points,
+                                 "Rank": rank}
         return Response({"ranking": [ranking]}, status=status.HTTP_200_OK)
