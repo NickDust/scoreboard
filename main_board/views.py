@@ -33,3 +33,10 @@ class RankingView(APIView):
             ranking[game_tag] = {"points": points,
                                  "Rank": rank}
         return Response({"ranking": [ranking]}, status=status.HTTP_200_OK)
+    
+class InformationView(APIView):
+    def get(self, request, pk):
+        data = UserProfileModel.objects.get(pk=pk)
+        if not data:
+            return Response({"message": "No information avaiable"}, status=status.HTTP_404_NOT_FOUND)
+        return Response({f"{data.game_tag}": f"{data.rank.rank}({data.points})"}, status=status.HTTP_200_OK)

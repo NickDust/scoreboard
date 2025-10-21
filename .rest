@@ -1,0 +1,15 @@
+POST http://127.0.0.1:8000/api/points-submitting/2/
+Content-Type: application/json
+
+{
+    "points": 300
+}
+###
+
+GET http://127.0.0.1:8000/api/information/3
+Content-Type: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/logs/
+Content-Type: application/json

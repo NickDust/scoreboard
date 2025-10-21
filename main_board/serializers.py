@@ -3,6 +3,7 @@ from registration.models import UserProfileModel
 from registration.serializers import UserProfileSerializer
 
 class PointsSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = UserProfileModel
         field = ["points"]
