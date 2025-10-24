@@ -2,7 +2,6 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .serializers import PointsSerializer
-from registration.serializers import UserProfileSerializer
 from django.shortcuts import get_object_or_404
 from registration.models import UserProfileModel
 from rest_framework.authentication import TokenAuthentication

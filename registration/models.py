@@ -39,9 +39,9 @@ class UserProfileModel(models.Model):
         return f"{self.user.username}The{champion}Rider{random_number}"
     
     def save(self, *args, **kwargs):
-        if not self.game_tag or self.game_tag.strip() == "":
+        if not self.game_tag or self.game_tag.strip() == "": #if during registration the user did not input the game tag one will be generated
             tag = self.game_tag_generator()
-            while UserProfileModel.objects.filter(game_tag=self.game_tag).exists():
+            while UserProfileModel.objects.filter(game_tag=self.game_tag).exists(): #if the generated game tag already exists another one will be generated  
                 tag = self.game_tag_generator()
                 self.game_tag = tag
         self.rank_assignation()
